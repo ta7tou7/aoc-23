@@ -6,15 +6,11 @@
  */
 
 plugins {
-    // Apply the groovy plugin to also add support for Groovy (needed for Spock)
     groovy
-
-    // Apply the application plugin to add support for building a CLI application in Java.
     application
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
@@ -27,9 +23,6 @@ dependencies {
     testImplementation(libs.junit)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    // This dependency is used by the application.
-    implementation(libs.guava)
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

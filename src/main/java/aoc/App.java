@@ -3,12 +3,26 @@
  */
 package aoc;
 
+import java.util.List;
+import java.util.regex.Pattern;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+    private static String numbers =
+        "one|two|three|four|five|six|seven|eight|nine";
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        var patternFirst = Pattern.compile(".*?(" + numbers + "|\\d)");
+        var patternLast = Pattern.compile(".*(" + numbers + "|\\d)");
+
+        var str = "nine7four7one";
+        var m = patternFirst.matcher(str);
+        if (m.find()) {
+            System.out.println(m.group(1));
+        }
+
+        var m2 = patternLast.matcher(str);
+        if (m2.find()) {
+            System.out.println(m2.group(1));
+        }
     }
 }
